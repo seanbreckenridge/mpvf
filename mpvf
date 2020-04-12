@@ -4,7 +4,7 @@
 mpvf_help() {
 	cat <<HELPTEXT
 Usage: mpvf URL [OPTION]...
-Interface to select youtube-dl format for streaming stuff with mpv.
+Interface to select a youtube-dl format for streaming stuff with mpv.
 
 Pass the URL to stream from as the first argument.
 Additional options/arguments are passed onto mpv.

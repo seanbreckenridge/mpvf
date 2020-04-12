@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/seanbreckenridge/mpvf/master/.github/demo.gif">
 
-Interface to select `youtube-dl` format for streaming [stuff](https://ytdl-org.github.io/youtube-dl/supportedsites.html) with `mpv`.
+Interface to select a `youtube-dl` format for streaming [stuff](https://ytdl-org.github.io/youtube-dl/supportedsites.html) with `mpv`.
 
 If you select an interface with video only, automatically adds 'bestaudio' to the format.
 
