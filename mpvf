@@ -31,7 +31,7 @@ PICKER="${MPVF_PICKER:-fzf}"
 
 require mpv
 require youtube-dl
-require $PICKER
+require "$PICKER"
 
 require sed
 require grep
@@ -53,12 +53,6 @@ YOUTUBE_DL_FORMATS_BODY=$(echo "$YOUTUBE_DL_FORMATS" | sed -e "1d")
 
 # prompt user to select format
 case "$PICKER" in
-fzf)
-	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS_BODY" | fzf +m --layout-reverse --header="$YOUTUBE_DL_FORMATS_TITLE" --tac); then
-		echo "Error: You didn't select one of the formats!" 1>&2
-		exit 1
-	fi
-	;;
 dmenu)
 	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS_BODY" | dmenu -i); then
 		echo "Error: You didn't select one of the formats!" 1>&2
@@ -67,6 +61,12 @@ dmenu)
 	;;
 rofi)
 	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS" | sed -e "1d" | rofi -dmenu -i -p "$YOUTUBE_DL_FORMATS_TITLE"); then
+		echo "Error: You didn't select one of the formats!" 1>&2
+		exit 1
+	fi
+	;;
+*)
+	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS_BODY" | fzf +m --layout=reverse --header="$YOUTUBE_DL_FORMATS_TITLE" --tac); then
 		echo "Error: You didn't select one of the formats!" 1>&2
 		exit 1
 	fi
