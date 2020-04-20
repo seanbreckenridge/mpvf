@@ -13,8 +13,17 @@ Pass the URL to stream from as the first argument.
 Additional options/arguments are passed onto mpv.
 ```
 
+You can set the `MPVF_PICKER` environment variable to use `dmenu`/`rofi` instead of `fzf`:
+
+```
+export MPVF_PICKER=rofi
+mpvf "<URL>"
+export MPVF_PICKER=dmenu
+mpvf "<URL>"
+```
+
 ### Installation
 
 Install each dependency if not already installed and then copy `mpvf` to somewhere on your path.
 
-Dependencies: [`mpv`](https://mpv.io/), [`youtube-dl`](https://ytdl-org.github.io/youtube-dl/index.html), [`fzf`](https://github.com/junegunn/fzf)
+Dependencies: [`mpv`](https://mpv.io/), [`youtube-dl`](https://ytdl-org.github.io/youtube-dl/index.html), [`fzf`](https://github.com/junegunn/fzf) (or specify `dmenu`/`rofi` as alternative)

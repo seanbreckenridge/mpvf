@@ -27,9 +27,11 @@ require() {
 	fi
 }
 
+PICKER="${MPVF_PICKER:-fzf}"
+
 require mpv
 require youtube-dl
-require fzf
+require $PICKER
 
 require sed
 require grep
@@ -47,11 +49,29 @@ fi
 YOUTUBE_DL_FORMATS=$(echo "$YOUTUBE_DL_FORMATS_RAW" | grep -v "^\[") # remove progress info
 YOUTUBE_DL_FORMATS_TITLE=$(echo "$YOUTUBE_DL_FORMATS" | head -n 1)   # get format title
 
+YOUTUBE_DL_FORMATS_BODY=$(echo "$YOUTUBE_DL_FORMATS" | sed -e "1d")
+
 # prompt user to select format
-if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS" | sed -e "1d" | fzf +m --layout=reverse --header="$YOUTUBE_DL_FORMATS_TITLE" --tac); then
-	echo "Error: You didn't select one of the formats!" 1>&2
-	exit 1
-fi
+case "$PICKER" in
+fzf)
+	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS_BODY" | fzf +m --layout-reverse --header="$YOUTUBE_DL_FORMATS_TITLE" --tac); then
+		echo "Error: You didn't select one of the formats!" 1>&2
+		exit 1
+	fi
+	;;
+dmenu)
+	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS_BODY" | dmenu -i); then
+		echo "Error: You didn't select one of the formats!" 1>&2
+		exit 1
+	fi
+	;;
+rofi)
+	if ! FORMAT_CHOICE=$(echo "$YOUTUBE_DL_FORMATS" | sed -e "1d" | rofi -dmenu -i -p "$YOUTUBE_DL_FORMATS_TITLE"); then
+		echo "Error: You didn't select one of the formats!" 1>&2
+		exit 1
+	fi
+	;;
+esac
 
 #Get format code
 FORMAT_CODE=$(echo "$FORMAT_CHOICE" | cut -d" " -f1)
