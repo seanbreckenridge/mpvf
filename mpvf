@@ -1,5 +1,5 @@
 #!/bin/sh
-# See https://github.com/seanbreckenridge/mpvf for more information
+# See https://gitlab.com/seanbreckenridge/mpvf for more information
 
 mpvf_help() {
 	cat <<HELPTEXT
@@ -9,7 +9,7 @@ Interface to select a youtube-dl format for streaming stuff with mpv.
 Pass the URL to stream from as the first argument.
 Additional options/arguments are passed onto mpv.
 
-More info: https://github.com/seanbreckenridge/mpvf
+More info: https://gitlab.com/seanbreckenridge/mpvf
 HELPTEXT
 }
 
