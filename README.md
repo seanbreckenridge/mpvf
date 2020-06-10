@@ -1,6 +1,6 @@
 # mpvf
 
-<img src="https://raw.githubusercontent.com/seanbreckenridge/mpvf/master/.github/demo.gif">
+<img src="https://gitlab.com/seanbreckenridge/mpvf/-/raw/master/.github/demo.gif">
 
 Interface to select a `youtube-dl` format for streaming [stuff](https://ytdl-org.github.io/youtube-dl/supportedsites.html) with `mpv`.
 
