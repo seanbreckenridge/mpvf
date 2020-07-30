@@ -4,7 +4,7 @@
 
 Interface to select a `youtube-dl` format for streaming [stuff](https://ytdl-org.github.io/youtube-dl/supportedsites.html) with `mpv`.
 
-If you select an interface with video only, automatically adds 'bestaudio' to the format.
+If you select a format with video only, automatically adds 'bestaudio' to the format.
 
 ```
 Usage: mpvf URL [OPTION]...
