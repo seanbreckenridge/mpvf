@@ -40,6 +40,6 @@ I've *further* wrapped this script as well:
   * [grab URL from my clipboard and stream using `mpvf`](https://sean.fish/d/stream-media?dark)
   * or, grab the URL and [just stream audio](https://sean.fish/d/stream-audio?dark)
   * or, grab the URL and [stream video](https://sean.fish/d/stream-corner?dark), stickying the video in the bottom right of the screen ('picture in picture'-like), using [this](https://sean.fish/d/i3-picture-in-picture?dark)
-  * another related variation; grab the URL and [stream at `480p`](https://sean.fish/d/stream-corner-480p?dark), often called from my RSS reader
+  * have other related variations; to grab the URL and [stream at different resolutions](https://github.com/seanbreckenridge/dotfiles/blob/9da260bd6610dbbe5ff90b6bea54cfba48bd505a/.config/shortcuts.toml#L509-L562), often called from my RSS reader
 * [`twitch`](https://sean.fish/d/twitch?dark): streams a twitch stream using `mpvf`. See [this blog post](https://exobrain.sean.fish/post/how_i/watch_twitch/) for more context.
 * [`mediaproxyvideo`](https://github.com/seanbreckenridge/vps/blob/master/mediaproxyvideo): mostly a copy of `mpvf`, which prompts me to select a format, `ssh`'s onto my server, `youtube-dl`/`ffmpeg`'s that video onto my server, and copies the public link its hosted on onto my clipboard.
