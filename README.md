@@ -8,9 +8,14 @@ If you select a format with video only, automatically adds 'bestaudio' to the fo
 
 ```
 Usage: mpvf URL [OPTION]...
+Interface to select a youtube-dl format for streaming stuff with mpv.
 
 Pass the URL to stream from as the first argument.
 Additional options/arguments are passed onto mpv.
+
+You can set the MPVF_DL environment variable to download
+the selected format code instead, like:
+MPVF_DL=1 mpvf https://... [youtube-dl OPTION...]
 ```
 
 You can set the `MPVF_PICKER` environment variable to use `dmenu`/`rofi` instead of `fzf`:

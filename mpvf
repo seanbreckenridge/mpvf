@@ -9,6 +9,10 @@ Interface to select a youtube-dl format for streaming stuff with mpv.
 Pass the URL to stream from as the first argument.
 Additional options/arguments are passed onto mpv.
 
+You can set the MPVF_DL environment variable to download
+the selected format code instead, like:
+MPVF_DL=1 mpvf https://... [youtube-dl OPTION...]
+
 More info: https://github.com/seanbreckenridge/mpvf
 HELPTEXT
 }
@@ -85,4 +89,9 @@ printf "[mpvf] Format: %s\n" "$FORMAT_CODE"
 echo "[mpvf] Running ytdl hook to stream with mpv..."
 
 shift # remove URL
-exec mpv "$@" --ytdl-format="$FORMAT_CODE" "ytdl://${URL}"
+if [ -n "${MPVF_DL}" ]; then
+	require youtube-dl
+	exec youtube-dl -f "${FORMAT_CODE}" "$@" "${URL}"
+else
+	exec mpv "$@" --ytdl-format="$FORMAT_CODE" "ytdl://${URL}"
+fi
