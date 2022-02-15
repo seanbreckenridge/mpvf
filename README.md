@@ -33,7 +33,11 @@ Dependencies: [`mpv`](https://mpv.io/), [`youtube-dl`](https://ytdl-org.github.i
 
 Install each dependency if not already installed and then download/copy `mpvf` to somewhere on your `$PATH`.
 
-Can also use [`sinister`](https://github.com/jamesqo/sinister): `sh <(curl -sSL http://git.io/sinister) -u 'https://raw.githubusercontent.com/seanbreckenridge/mpvf/master/mpvf'` to automate the `curl`/`chmod`/`mv` instead.
+Could also use [`basher`](https://github.com/basherpm/basher):
+
+```bash
+basher install seanbreckenridge/mpv-sockets
+```
 
 ### Notes
 
