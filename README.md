@@ -36,7 +36,7 @@ Install each dependency if not already installed and then download/copy `mpvf` t
 Could also use [`basher`](https://github.com/basherpm/basher):
 
 ```bash
-basher install seanbreckenridge/mpv-sockets
+basher install seanbreckenridge/mpvf
 ```
 
 ### Notes
